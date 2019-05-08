@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dist="http://schemas.android.com/apk/distribution"
+    package="com.example.shepherd">
+
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.USE_SIP" />
+
+    <dist:module dist:instant="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service
+            android:name=".MegaPhone"
+            android:exported="false"></service>
+
+        <activity
+            android:name=".GuideListActivity"
+            android:label="@string/title_guide_list"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GuideDetailActivity"
+            android:label="@string/title_guide_detail"
+            android:parentActivityName=".GuideListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shepherd.GuideListActivity" />
+        </activity>
+        <activity
+            android:name=".TravelerMainActivity"
+            android:label="@string/title_activity_traveler_main"
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.shepherd.LoginActivity" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyApt-LlbHXed2gOjn4MF7D6hxWbWLIopY4@string/google_maps_key" />
+
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GroupListScrollingActivity"
+            android:label="@string/title_activity_group_list_scrolling"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.google.firebase.quickstart.auth">
+
+
+            <activity android:name=".EntryChoiceActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+            </activity>
+            <activity android:name=".java.ChooserActivity" />
+            <activity
+                android:name=".java.CustomAuthActivity"
+                android:label="@string/label_custom_auth" />
+            <activity
+                android:name=".java.GoogleSignInActivity"
+                android:label="@string/label_google_sign_in" />
+            <activity
+                android:name=".java.FacebookLoginActivity"
+                android:label="@string/label_facebook_login" />
+            <activity
+                android:name=".java.EmailPasswordActivity"
+                android:label="@string/label_emailpassword"
+                android:windowSoftInputMode="stateAlwaysHidden" />
+            <activity
+                android:name=".java.PasswordlessActivity"
+                android:label="@string/label_passwordless"
+                android:launchMode="singleTop">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <data
+                        android:host="your-project-id.firebaseapp.com"
+                        android:scheme="https" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+            <activity
+                android:name=".java.PhoneAuthActivity"
+                android:label="@string/label_phone_auth"
+                android:windowSoftInputMode="adjustPan" />
+            <activity
+                android:name=".java.AnonymousAuthActivity"
+                android:label="@string/label_anonymous_auth" />
+            <activity
+                android:name=".java.TwitterLoginActivity"
+                android:label="@string/label_twitter_login" />
+            <activity
+                android:name=".java.FirebaseUIActivity"
+                android:label="@string/label_firebase_ui" />
+            <activity
+                android:name=".java.GenericIdpActivity"
+                android:label="@string/label_generic_idp" />
+
+            <activity android:name=".kotlin.ChooserActivity" />
+
+            <activity
+                android:name=".kotlin.CustomAuthActivity"
+                android:label="@string/label_custom_auth" />
+            <activity
+                android:name=".kotlin.GoogleSignInActivity"
+                android:label="@string/label_google_sign_in" />
+            <activity
+                android:name=".kotlin.FacebookLoginActivity"
+                android:label="@string/label_facebook_login" />
+            <activity
+                android:name=".kotlin.EmailPasswordActivity"
+                android:label="@string/label_emailpassword"
+                android:windowSoftInputMode="stateAlwaysHidden" />
+            <activity
+                android:name=".kotlin.PasswordlessActivity"
+                android:label="@string/label_passwordless"
+                android:launchMode="singleTop">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+                    <data
+                        android:host="your-project-id.firebaseapp.com"
+                        android:scheme="https" />
+
+                    <category android:name="android.intent.category.BROWSABLE" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+            <activity
+                android:name=".kotlin.PhoneAuthActivity"
+                android:label="@string/label_phone_auth"
+                android:windowSoftInputMode="adjustPan" />
+            <activity
+                android:name=".kotlin.AnonymousAuthActivity"
+                android:label="@string/label_anonymous_auth" />
+            <activity
+                android:name=".kotlin.TwitterLoginActivity"
+                android:label="@string/label_twitter_login" />
+            <activity
+                android:name=".kotlin.FirebaseUIActivity"
+                android:label="@string/label_firebase_ui" />
+            <activity
+                android:name=".kotlin.GenericIdpActivity"
+                android:label="@string/label_generic_idp" />
+
+            <!-- Facebook Configuration -->
+            <meta-data
+                android:name="com.facebook.sdk.ApplicationId"
+                android:value="@string/facebook_app_id"
+                tools:replace="android:value" />
+
+            <activity
+                android:name="com.facebook.FacebookActivity"
+                android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+                android:label="@string/app_name"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar"
+                tools:replace="android:theme" />
+
+
+    </manifest>
+</manifest>
